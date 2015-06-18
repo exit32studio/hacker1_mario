@@ -22,14 +22,9 @@ int getNumberOfBricks (void);
 void layoutBricks (int heightOfPyramid);
 
 /**
- * Prints n bricks, where n is "numberOfBricks"
+ * Prints n characters, where n is "numberOfBricks" and the character is "character"
  */
-void printBricks (int numberOfBricks);
-
-/**
- * Prints n spaces, where n is the "numberOfSpaces"
- */ 
-void printSpaces (int numberOfSpaces);
+void printBricks (int numberOfBricks, char character);
 
 int main (void)
 {
@@ -76,33 +71,27 @@ void layoutBricks (int heightOfPyramid)
     //Make place holders for the number of bricks and the number of gaps
     int numberOfBricks = 1;
     int numberOfSpaces = 0;
+    char space = ' ';
+    char brick = 'x';
     do 
     {
         numberOfSpaces = heightOfPyramid - numberOfBricks;
         //Print the spaces and the bricks
-        printSpaces(numberOfSpaces);
-        printBricks(numberOfBricks);
+        printBricks(numberOfSpaces, space);
+        printBricks(numberOfBricks, brick);
         printf("  ");
-        printBricks(numberOfBricks);
-        printSpaces(numberOfSpaces);
+        printBricks(numberOfBricks, brick);
+        printBricks(numberOfSpaces, space);
         printf("\n");
         numberOfBricks++;
     }
     while (numberOfBricks <= heightOfPyramid);
 } 
 
-void printBricks(int numberOfBricks)
+void printBricks (int numberOfBricks, char character)
 {
     for (int i = 0; i < numberOfBricks; i++)
     {
-        printf("#");
-    }
-}
-
-void printSpaces (int numberOfSpaces)
-{
-    for (int i = 0; i < numberOfSpaces; i++)
-    {
-        printf(" ");
+        printf("%c", character);
     }
 }
