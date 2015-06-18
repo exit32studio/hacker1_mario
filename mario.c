@@ -1,9 +1,34 @@
+/**
+ * mario.c
+ * 
+ * Exit32Studio - J. Bobula
+ * contact@exit32Studio.com
+ *
+ *
+ * Asks user for a number between 1 & 23, then prints a pyramid that many bricks tall
+ */
+
 #include <cs50.h>
 #include <stdio.h>
 
+/**
+ * Asks the user for the number of bricks / height of the pyramid
+ */
 int getNumberOfBricks (void);
+
+/**
+ * Lays out a pyramid as tall as "heightOfPyramid")
+ */
 void layoutBricks (int heightOfPyramid);
+
+/**
+ * Prints n bricks, where n is "numberOfBricks"
+ */
 void printBricks (int numberOfBricks);
+
+/**
+ * Prints n spaces, where n is the "numberOfSpaces"
+ */ 
 void printSpaces (int numberOfSpaces);
 
 int main (void)
