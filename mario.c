@@ -33,13 +33,12 @@ int main (void)
     
     //Ask the helper routine to get the number of bricks from the user
     numberOfBricks = getNumberOfBricks();
-    
-    //Let the user know the height of the pyramid
-    printf("Height: %i\n", numberOfBricks);
-    
-    //Pass the number of bricks over to the layout helper
-    layoutBricks(numberOfBricks);
-    
+    if (numberOfBricks != 0)
+    {    
+        //Pass the number of bricks over to the layout helper
+        layoutBricks(numberOfBricks);
+    }
+
     //return 0 at the end of the program
     return 0;
 }
@@ -49,17 +48,17 @@ int getNumberOfBricks (void)
     //Make an int to hold the number of bricks
     int userEntry = 0;
     
-    /*
-    Enter into a loop that will only return a number between 1 and 23. Use a do->while loop to make sure
-    the program runs through the loop at least once
-    */
+    //Enter into a loop that will only return a number between 1 and 23. Use a do->while loop to make sure
+    //the program runs through the loop at least once
+
     do 
     {
         printf ("Please enter a number between 1 and 23: ");
         userEntry = GetInt();
         
     } 
-    while (userEntry <= 0 || userEntry >23);
+    while (userEntry < 0 || userEntry >23);
+
     
     //Return the number of bricks the user entered
     return userEntry;
@@ -72,7 +71,7 @@ void layoutBricks (int heightOfPyramid)
     int numberOfBricks = 1;
     int numberOfSpaces = 0;
     char space = ' ';
-    char brick = 'x';
+    char brick = '#';
     do 
     {
         numberOfSpaces = heightOfPyramid - numberOfBricks;
@@ -81,7 +80,6 @@ void layoutBricks (int heightOfPyramid)
         printCharacter(numberOfBricks, brick);
         printf("  ");
         printCharacter(numberOfBricks, brick);
-        printCharacter(numberOfSpaces, space);
         printf("\n");
         numberOfBricks++;
     }
