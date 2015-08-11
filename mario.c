@@ -57,7 +57,7 @@ int getNumberOfBricks (void)
         userEntry = GetInt();
         
     } 
-    while (userEntry < 0 || userEntry >23);
+    while (userEntry < 1 || userEntry >23);
 
     
     //Return the number of bricks the user entered
